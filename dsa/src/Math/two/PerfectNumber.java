@@ -1,4 +1,4 @@
-package Math.imp;
+package Math.two;
 
 //Perfect prime: if sum of all its divisors(including 1) equals number itself
 //output: if input 6, then 1+2+3=6 so perfect number

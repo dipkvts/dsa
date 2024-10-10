@@ -1,4 +1,4 @@
-package Math.imp;
+package Math.two;
 
 public class CountOfPrimeNumberTillN {
 

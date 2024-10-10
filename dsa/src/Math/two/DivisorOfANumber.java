@@ -1,4 +1,4 @@
-package Math.imp;
+package Math.two;
 
 import java.util.Arrays;
 
