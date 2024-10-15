@@ -25,4 +25,8 @@ public class ReverseAString2 {
     	}
     	
     }
+    
+
+    //Stack can also be used (same complexity)
+    public static void reverseString1(char[] s) {}
 }

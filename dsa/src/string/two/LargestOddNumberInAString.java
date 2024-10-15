@@ -13,19 +13,20 @@ public class LargestOddNumberInAString {
 		String str3="5347";
 		String str4="05034";
 		
-    	System.out.println(largeOddNum(str1));
+    	System.out.println(largeOddNum(str2));
 	}
 	
 	//TC:O(n)
 	//SC: O(1)
 	//Approach: Traverse from right n find out 1st odd digit, mark it as lastIndex. Find out 1st non-zero digit from left and mark it as firstIndex. Get substring from 1st till lastIndex 
-    public static String largeOddNum(String s) {
+    //Integer.parseInt(String.valueOf(s.charAt(j))) is same as "s.charAt(j)-'0'"
+	public static String largeOddNum(String s) {
     	
     	int lastOddIndex=-1;
     	int firstNonZeroIndex=-2;
     	
     	for(int j=s.length()-1; j>=0; j--) {
-    		if((Integer.parseInt(String.valueOf(s.charAt(j))))%2 !=0) {
+    		if((s.charAt(j)-'0')%2 !=0) {
     			lastOddIndex=j;
     			break;
     		}
