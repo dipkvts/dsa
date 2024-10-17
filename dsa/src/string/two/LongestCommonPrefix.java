@@ -1,4 +1,6 @@
-package string;
+package string.two;
+
+import java.util.Arrays;
 
 public class LongestCommonPrefix {
 
@@ -18,12 +20,14 @@ public class LongestCommonPrefix {
 	//BRUTEFORCE
 	//TC: O(m*n) m is minimun lenth of string available in array
 	//TC: O(1)
-    public static String longestCommonPrefix2(String[] str) {
+	//Approach: compare 1st string characters one by one with each of the rest strings characters in array
+    public static String longestCommonPrefix(String[] str) {
 
     	String commonPrefix="";
     	int minStrLength=201;
     	String firstString = str[0];
     	
+    	//minLength is determined as sirf min string length count tak hi string traverse hona chahiye, else arrayOutOfBound exception may arise
     	for(String string : str) {
     		if(string.length()<minStrLength) {
     			minStrLength=string.length();
@@ -40,6 +44,31 @@ public class LongestCommonPrefix {
     		commonPrefix+=firstString.charAt(i);
     	}
     	
+    	return commonPrefix;
+    }
+    
+    
+    
+    //TC: O((n log n)+m) as sorting has nlogn complexity
+    //SC: O(1)
+    //Approach: sort the array n compare 1st n last string characters
+    public static String longestCommonPrefix2(String[] str) {
+    
+    	String commonPrefix="";
+    	Arrays.sort(str);
+    	
+    	if(str[0].isEmpty() || str[str.length-1].isEmpty())
+    		return commonPrefix;
+    	
+    	int minLength = Math.min(str[0].length(), str[str.length-1].length());
+    	
+    	for(int i=0; i<minLength; i++) {
+    		if(str[0].charAt(i)!=str[str.length-1].charAt(i)) {
+    			return commonPrefix;
+    		}
+    		commonPrefix+=str[0].charAt(i);
+    	}
+
     	return commonPrefix;
     }
 }
